@@ -3,10 +3,10 @@
 🚀 Quickstart
 ==========
 
-1. Clone repository and get the apptainers that contain all the dependencies
+1. Clone the repository and get the apptainers that contain all the dependencies
 ------------
 
-Clone git repository in an appropiate location:
+Clone the Git repository in an appropriate location:
 
 .. code-block:: console
 
@@ -22,9 +22,9 @@ Download apptainer/docker image:
   # Docker
   docker pull kleinmanlab/coral:celltypist_models
  
-Now that we get the code and all the dependencies, let's start to prepare the input files
+Now that we have the code and all the dependencies, let's start preparing the input files
 
-2. Prepare Inputs
+2. Prepare the Inputs files
 ----------------
 
 Reference
@@ -32,7 +32,7 @@ Reference
 
 The input format for the references could be a **cell x gene matrix (.csv)** of raw counts and a **cell x label matrix (.csv)**, a **Seurat** or a **SingleCellExperiment** object.
 
-Both the **cell x gene matrix** and **cell x label matrix** need the first column to be the cell names in matching order with an empty column name.
+Both the **cell x gene matrix** and **cell x label matrix** need the first column should have the first column containing the cell names, in the same order in both matrices, with an empty column header.
 
 .. raw:: html
 
@@ -93,9 +93,9 @@ For **SingleCellExperiment** it assumes that the raw counts is in the 'counts' a
 Query Samples
 ^^^^^^^^^^
 
-The input format for the query samples could be a **cell x gene matrix (.csv)** of raw counts and a **cell x label matrix (.csv)**, a **Seurat** or a **SingleCellExperiment** object
+The input format for the query samples could be a **cell x gene matrix (.csv)** of raw counts, a **Seurat**, or a **SingleCellExperiment** object.
 
-The first column needs to be the cell names with an empty column name.
+The first column should contain the cell names with an empty column name.
 
 .. list-table:: Cell x Gene matrix
    :widths: 25 25 25 25
@@ -122,22 +122,22 @@ The first column needs to be the cell names with an empty column name.
      - 23
      - 17
 
-The **Seurat** or **SingleCellExperiment** object needs to be saved as .rda or .rds.
+The **Seurat** or **SingleCellExperiment** object needs to be saved as :code:`.rda` or :code:`.rds`.
 **Seurat** objects are compatible until v4. 
-For **SingleCellExperiment** it assumes that the raw counts is in the 'counts' assay.
+For **SingleCellExperiment** it assumes that the raw counts are in the :code:'counts' assay.
 
 3. Prepare the config file
 ----------------
 
-For each run a .yml config file needs to be prepared with information about the reference data, query samples and methods.
-Multiple references can be specified with an unique **reference name** and multiple query samples can be specified with an unique **sample name**.
+For each run, a .yml config file needs to be prepared with information about the reference data, query samples and methods.
+Multiple references can be specified, each with a **reference name**, and multiple query samples can be specified, each with a unique **sample name**.
 
-Full list of available tools and detailed documentation can be found here: :ref:`tools`       
+Full list of available tools and their detailed documentation can be found here: :ref:`tools`       
 Make sure that the names of the selected tools have the same capitalization and format as this list. 
 The consensus tools used for consensus calculation selected in **consensus -> tools** can either be :code:`all` (which uses all the tools in **tools_to_run**) or a list of tools to include specified by the user. 
 
-The consensus can be calculated as the majority vote, specifying the minimum of tool agreement or/and with CAWPE specifying the mode: :code:`CAWPE_CT` (using the performance of each tool predicting an specific cell-type) or :code:`CAWPE_T` (performance of each tool). CAWPE only works if the benchmarking pipeline has been run.
-For more details about consensus methods referes to: :ref:`consensus_methods` 
+The consensus can be calculated as the majority vote, specifying the minimum number of tool agreement or/and, with CAWPE specifying the mode: :code:`CAWPE_CT` (using the performance of each tool predicting a specific cell-type) or :code:`CAWPE_T` (performance of each tool). CAWPE only works if the benchmarking pipeline has been run.
+For more details about consensus methods, refer to: :ref:`consensus_methods` 
 At least one consensus type should be specified.
 
 **Minimal config file for cross validation:**
@@ -239,13 +239,13 @@ Be aware that some tools cannot be pretrained: :code:`scAnnotate`, :code:`scID` 
                     mode: [<CAWPE mode>]
 
 
-For more details about the config files of each mode, see: See: :ref:`config-section`
-To further customized your config file see: :ref:`changing_default`
+For more details about the config files of each mode, see: :ref:`config-section`
+To further customize your config file see: :ref:`changing_default`
 
 4. Prepare HPC submission script (OPTIONAL)
 ----------------
 
-To run the snakemake pipeline on a HPC a submission script needs to be prepared
+To run the snakemake pipeline on a HPC, a submission script needs to be prepared
 
 See: [Example Bash Script](example.submit.sh)
 
@@ -262,7 +262,7 @@ See: [Example Bash Script](example.submit.sh)
   #SBATCH --mem-per-cpu=60GB 
   
   # apptainer image
-  image=<path to apptainer immage>
+  image=<path to apptainer image>
   
   # snakefile 
   snakefile=<path to snakefile.master>
@@ -276,4 +276,4 @@ See: [Example Bash Script](example.submit.sh)
   # run CoRAL  
   apptainer exec --contain --cleanenv --pwd "$PWD" $image snakemake -s ${snakefile} --configfile ${config}  --cores 5
   
-**IMPORTANT** Make sure that the number of cores requested match the number of cores in the snakemake command for optimal use of resources.
+**IMPORTANT** Make sure that the number of cores requested matches the number of cores in the snakemake command for optimal use of resources.
