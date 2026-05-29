@@ -114,7 +114,7 @@ The first thing you need to do is check the config file for the benchmarking pip
   
   cat ConfigFiles/benchmark.yml
   
-The confign file specifies which pipeline to run
+The config file specifies which pipeline to run
 
 .. code-block:: yaml
   
@@ -235,7 +235,7 @@ Make sure that the number of folds and the methods match your config file!
 
 **3. Run the pipeline** 
 
-Now that you've made sure that the dry run works you are ready to run the benchmarkig pipeline! Remove the :code:`-n` flag from your script:
+Now that you've made sure that the dry run works, you are ready to run the benchmarking pipeline! Remove the :code:`-n` flag from your script:
 
 .. code-block:: console
 
@@ -268,7 +268,7 @@ Another important flag is :code:`--cores`. This parameter lets you parallelize t
   
 **4. Monitor pipeline** 
 
-Check pipleine progress in the logs:
+Check pipeline progress in the logs:
 
 .. code-block:: console
   
@@ -296,7 +296,7 @@ Run the training pipeline
 
 **1. Set up the config file** 
 
-Now that you have run the benchmarking pipeline you can run the training pipeline. The first thing you need to do is check the config file for the train pipeline
+Now that you have run the benchmarking pipeline you can run the training pipeline. The first thing you need to do is check the config file for the training pipeline
 
 .. code-block:: console
 
@@ -543,8 +543,9 @@ When the pipeline is done it should print :code:`25 of 25 steps (100%) done` in 
 **5. Check output files** 
 
 The most important files outputed by the pipeline is: 
+
 - The html reports for each sample and reference found in the reports folder: :code:`Out/Annotate/ct_p6/report/`
-- The :code:`.csv` files with all the prediction results from the individual methods and the consensus:
+- The :code:`.tsv` files with all the prediction results from the individual methods and the consensus:
   :code:`Out/Annotate/ct_p6/test_reference/majority/Prediction_Summary_label.tsv`
   :code:`Out/Annotate/ct_p6/test_reference/CAWPE/Prediction_Summary_label.tsv`
 - The :code:`.csv` file with the CAWPE scores: :code:`Out/Annotate/ct_p6/test_reference/CAWPE/CAWPE_T_4_label_scores.csv`
@@ -554,7 +555,7 @@ Additional features
 
 **1. Add an celltype otology for your reference dataset in the benchmarking pipeline** 
 
-In many cases you might have groups of related cell types in your reference data set that you want to merge together. You might have 5 types of neurons but you don't care which type of neuron your cell is, you just care if it's a neuron or not. In this case you can add a cell type ontology file for you're reference data set. You can find an example of this file in :code:`Reference/ontology.csv`
+In many cases you might have groups of related cell types in your reference data set that you want to merge together. You might have 5 types of neurons without any incidence on your underlying question. If your scientific question is differentiating neurons or not. In this case you can add a cell type ontology file for you're reference data set. You can find an example of this file in :code:`Reference/ontology.csv`
 
 To see the content of this file run:
 
@@ -673,7 +674,7 @@ You could also have a mix of :code:`.Rda`, :code:`.Rds` and :code:`.csv`!
 Tutorial Over!! 
 ------------------
 
-Good job! For more information about each pipline, snakemake, parameters and other things see the rest of this documentation. 
+Good job! For in depth information about the various parameters of the pipeline, the piepline itself, or snakemake, and to better understand this tool see the rest of this documentation. 
 
 .. raw:: html
 
