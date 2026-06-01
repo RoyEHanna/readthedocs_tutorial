@@ -6,8 +6,8 @@
 1. What's an ontology
 ------------
 
-An ontology could be summarised as a hierarchical graph of hierarchy of nested granular classes within broader classes.
-After predicting at one level of granularity results could be summarised an re-calculated at broader class following the graph structure.
+An ontology could be summarised as a hierarchical graph of nested granular classes within broader classes.
+After predicting at one level of granularity, results could be summarised an re-calculated at broader class following the graph structure.
 
 TODO, put an image
 
@@ -16,9 +16,9 @@ As in this example cell-type1 and cell-type2 are part of the.... EXPLAIN
 2. How to add an Ontology on CoRAL
 ------------
 
-After mapping the reference labels to a query the labelss can be summarized to higher ontology levels.
+After mapping the reference labels to a query, the labels can be summarized to higher ontology levels.
 
-The ontology file needs to be a .csv file where the first column is called label. This column needs to have a complete set of the unique labels in the reference data set.
+The ontology file must be provided as a .csv file. The first column, named label, must contain the complete set of unique labels present in the reference dataset.
 Every other column can be named anything and contain any groupings of the labels in the first column.
 **IMPORTANT** Be sure that your ontology follows a nested hierarchical structure.
 
@@ -57,7 +57,7 @@ The ontology is specified in the reference section of the config file:
               # Path to the csv containing the ontology path. Each column represents a different granularity of labels. The columns should be named.
               ontology_path: <path to ontology.csv>
               # The column name(s) of the granularity to use, from the ontology file.
-              # This parameter can take multiple column names, therefore they should be put in a list, in case of none specification of the column all the ontology columns in the file will be used.
+              # This parameter can take multiple column names, therefore, they should be put in a list, in case of none specification of the column all the ontology columns in the file will be used.
               # (ex: ['level']     ['level1', 'level2'])
                 ontology_column: <ontology_column to use>
 
