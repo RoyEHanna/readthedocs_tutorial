@@ -5,12 +5,12 @@
 
 Overview
 ------------
-The pipeline uses a default config file in addition to the user defined one to specify tool parameters as well as cluster options. For full list of parameters you can change see: 
+The pipeline uses a default config file in addition to the user defined one to specify tool parameters as well as cluster options. For a full list of parameters you can change, see: 
 `Default Config file for more details <https://github.com/fungenomics/CoRAL/blob/main/Config/config.default.yml>`_
 
-To over ride these values you can either add a corresponding section in your config file or copy the whole default config to your run folder, change the values and add it as an extra config in the submission script. The second option may be preferable if you are changing many of the default parameters.
+To override these values, you can either add the corresponding section to your custom configuration file or copy the entire default configuration file to your run directory, modify the desired parameters, and include it as an additional configuration file in the submission script. The second approach may be preferable when changing a large number of default parameters, as it provides a complete and explicit record of all modified settings.
 
-The order of overwriting parameters are as follows:
+The order of overwriting parameters is as follows:
   1. Config specified in the snakefile (in this case the default config)
   2. Config specified as snakemake argument with :code:`--configfile` (in the order they are added)
   3. Parameters specified directly in snakemake argument with :code:`--config`
@@ -20,7 +20,7 @@ Examples
 
 Option 1: Add corresponding section to your own config file
 ^^^^^^^^^^
-**Case:** You want to change the probability cut off threshold from 0.5 to 0.25 for scHPL
+**Case:** You want to change the probability cutoff threshold from 0.5 to 0.25 for scHPL
 
 This section is found in the default config:
 
@@ -60,7 +60,7 @@ Create a corresponding section in your config and change the threshold value to 
 
 Option 2: Copy the whole default config and add it as an extra config file in the snakemake command
 ^^^^^^^^^^
-In this case your submission script would look like this:
+In this case, your submission script would look like this:
 
 .. code-block:: yaml
 
