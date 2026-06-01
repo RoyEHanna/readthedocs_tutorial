@@ -88,11 +88,11 @@ Features
 - *reference*:
 
   - *expression*: 
-    Path to expression matrix, seurat object or single cell experiment.
+    Path to expression matrix, Seurat object or single-cell experiment.
     Not necessary if pretrain_models path were specified.
     
   - *labels*: 
-    Path to labels files or column with label metadata. 
+    Path to labels files or a column name with label metadata. 
     Not necessary if :code:`pretrain_models` path were specified.
     
   - *batch*: 
@@ -102,8 +102,8 @@ Features
     
   - *pretrain_models*: 
     Path to pretrained models. 
-    Models not found in the path will be train from scratch. 
-    Any modification specified in the config file to the reference will be applied if :code:`pretrain_models` were specified. 
+    Models not found in the path will be trained from scratch. 
+    Any modification specified in the config file to the reference will be applied if :code:`pretrain_models` was specified. 
     
   - *ontology*:
   
@@ -113,12 +113,12 @@ Features
       The columns should be named.
       
     - *ontology_column*: 
-      This parameter can take multiple column names, therefore they should be put in a list, in case of none specification of the column all the ontology columns in the file will be used. 
+      This parameter can take multiple column names, therefore they should be put in a list. If no columns are specified, all ontology columns in the file will be used.
   - *output_dir_benchmark*:  
     Path to benchmarking pipeline ran in the :ref:`config_benchmarking` pipeline where the weight for CoRAL were calculated. Only needed if CAWPE mode is specified as a consensus method.
     
     
-  **This features are use to modify your reference before running the training**:
+  **These features are used to modify your reference before running the training**:
   
     - *convert_ref_mm_to_hg*: 
       Logical. 
@@ -140,19 +140,19 @@ Features
       - *stratified*: 
         This argument allows stratifying the downsampling according to attributes of the dataset. 
         The logic is the same as the group_by function in tidyverse. 
-        The cells will be group by the atributes specified in brackets ([]) separated by commas (,), and the downsampling specified in :code:`value` will applied. If :code:'stratified' argument is not specified or is empty, the downsampling will be performed without any stratification.
+        The cells will be group by the attributes specified in brackets ([]) separated by commas (,), and the downsampling specified in :code:`value` will be applied. If :code:'stratified' argument is not specified or is empty, the downsampling will be performed without any stratification.
         
 - *query_datasets*: 
   Path to query samples.
   
 - *tools_to_run*: 
-  List of method to run. See :ref:`tools` to find available tools.
+  List of methods to run. See :ref:`tools` to find available tools.
   
 - *consensus*: 
   See :ref:`consensus_methods` for more details.
   
   - *tools*: 
-    Tools to use in the consensus. Use code:`all` for include all the tools, a list with the specified tool otherwise.
+    Tools to use in the consensus. Use :code:`all` to include all the tools, a list with the specified tool otherwise.
     
   - *type*: 
     Type of consensus to use.
@@ -162,7 +162,7 @@ Features
       
       - *min_agree*: 
         List. 
-        Minimal agreement to use, every cell whit less than this value will be automaticly called **No Consensus**. 
+        Minimal agreement to use, every cell with less than this value will be automatically called **No Consensus**. 
         More than one threshold could be specified.
         
     - *CAWPE*: 
